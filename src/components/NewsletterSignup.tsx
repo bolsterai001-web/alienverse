@@ -8,7 +8,7 @@ interface NewsletterSignupProps {
   className?: string;
 }
 
-export default function NewsletterSignup({ variant = "card", className = "" }: NewsletterSignupProps) {
+export default function NewsletterSignup({ className = "" }: NewsletterSignupProps) {
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
