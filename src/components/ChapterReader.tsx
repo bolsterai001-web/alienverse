@@ -3,10 +3,8 @@
 import React, { useState, useEffect } from "react";
 import { Chapter } from "@/types";
 import { 
-  BookOpen, 
   Volume2, 
   VolumeX, 
-  Type, 
   Sparkles, 
   ArrowRight, 
   ShoppingBag, 
@@ -59,25 +57,25 @@ export default function ChapterReader({ chapter }: ChapterReaderProps) {
 
   return (
     <div className="relative">
-      {/* Top Reading Progress Bar */}
-      <div className="fixed top-0 left-0 right-0 h-1 bg-slate-900 z-50">
+      {/* Top Reading Progress Bar matching Fineed Electric Lime */}
+      <div className="fixed top-0 left-0 right-0 h-1.5 bg-slate-200 z-50">
         <div
-          className="h-full bg-gradient-to-r from-cyan-400 via-teal-300 to-violet-500 transition-all duration-150"
+          className="h-full bg-[#D4F639] transition-all duration-150"
           style={{ width: `${scrollProgress}%` }}
         />
       </div>
 
       {/* Reader Control Bar */}
       <div className="sticky top-16 sm:top-20 z-30 mx-auto max-w-4xl px-4 mb-8">
-        <div className="flex flex-wrap items-center justify-between gap-3 p-3 rounded-2xl bg-void-900/90 backdrop-blur-xl border border-cyan-500/20 shadow-xl shadow-black/40 text-xs">
+        <div className="flex flex-wrap items-center justify-between gap-3 p-3.5 rounded-2xl bg-white/90 backdrop-blur-xl border border-slate-200/80 shadow-md text-xs">
           {/* Metadata */}
-          <div className="flex items-center gap-3 text-slate-300">
-            <span className="flex items-center gap-1.5 font-mono text-cyan-400">
-              <Clock className="h-3.5 w-3.5" />
+          <div className="flex items-center gap-3 text-slate-700">
+            <span className="flex items-center gap-1.5 font-mono text-slate-950 font-extrabold">
+              <Clock className="h-3.5 w-3.5 text-slate-900" />
               {chapter.readingTime}
             </span>
-            <span className="hidden sm:inline text-slate-600">•</span>
-            <span className="hidden sm:inline text-slate-400 font-mono">
+            <span className="hidden sm:inline text-slate-300">•</span>
+            <span className="hidden sm:inline text-slate-500 font-mono font-medium">
               PROLOGUE & TRANSMISSION 001
             </span>
           </div>
@@ -85,11 +83,11 @@ export default function ChapterReader({ chapter }: ChapterReaderProps) {
           {/* Controls: Typeface & Font Size */}
           <div className="flex items-center gap-2 sm:gap-3">
             {/* Font Family Toggle */}
-            <div className="flex items-center bg-slate-950/80 rounded-lg p-0.5 border border-slate-800">
+            <div className="flex items-center bg-slate-100 rounded-xl p-0.5 border border-slate-200">
               <button
                 onClick={() => setFontFamily("serif")}
-                className={`px-2.5 py-1 rounded font-serif text-xs ${
-                  fontFamily === "serif" ? "bg-cyan-500/20 text-cyan-300 font-semibold" : "text-slate-400 hover:text-white"
+                className={`px-3 py-1 rounded-lg font-serif text-xs transition-all ${
+                  fontFamily === "serif" ? "bg-[#D4F639] text-slate-950 font-black shadow-sm" : "text-slate-600 hover:text-slate-950"
                 }`}
                 title="Serif Literary Font"
               >
@@ -97,8 +95,8 @@ export default function ChapterReader({ chapter }: ChapterReaderProps) {
               </button>
               <button
                 onClick={() => setFontFamily("sans")}
-                className={`px-2.5 py-1 rounded font-sans text-xs ${
-                  fontFamily === "sans" ? "bg-cyan-500/20 text-cyan-300 font-semibold" : "text-slate-400 hover:text-white"
+                className={`px-3 py-1 rounded-lg font-sans text-xs transition-all ${
+                  fontFamily === "sans" ? "bg-[#D4F639] text-slate-950 font-black shadow-sm" : "text-slate-600 hover:text-slate-950"
                 }`}
                 title="Sans-Serif Modern Font"
               >
@@ -107,11 +105,11 @@ export default function ChapterReader({ chapter }: ChapterReaderProps) {
             </div>
 
             {/* Font Size Selector */}
-            <div className="flex items-center bg-slate-950/80 rounded-lg p-0.5 border border-slate-800">
+            <div className="flex items-center bg-slate-100 rounded-xl p-0.5 border border-slate-200">
               <button
                 onClick={() => setFontSize("sm")}
-                className={`px-2 py-1 rounded text-xs ${
-                  fontSize === "sm" ? "bg-cyan-500/20 text-cyan-300 font-semibold" : "text-slate-400 hover:text-white"
+                className={`px-2.5 py-1 rounded-lg text-xs font-bold transition-all ${
+                  fontSize === "sm" ? "bg-[#D4F639] text-slate-950 font-black shadow-sm" : "text-slate-600 hover:text-slate-950"
                 }`}
                 title="Compact Font Size"
               >
@@ -119,8 +117,8 @@ export default function ChapterReader({ chapter }: ChapterReaderProps) {
               </button>
               <button
                 onClick={() => setFontSize("base")}
-                className={`px-2 py-1 rounded text-xs ${
-                  fontSize === "base" ? "bg-cyan-500/20 text-cyan-300 font-semibold" : "text-slate-400 hover:text-white"
+                className={`px-2.5 py-1 rounded-lg text-xs font-bold transition-all ${
+                  fontSize === "base" ? "bg-[#D4F639] text-slate-950 font-black shadow-sm" : "text-slate-600 hover:text-slate-950"
                 }`}
                 title="Default Font Size"
               >
@@ -128,8 +126,8 @@ export default function ChapterReader({ chapter }: ChapterReaderProps) {
               </button>
               <button
                 onClick={() => setFontSize("lg")}
-                className={`px-2 py-1 rounded text-xs ${
-                  fontSize === "lg" ? "bg-cyan-500/20 text-cyan-300 font-semibold" : "text-slate-400 hover:text-white"
+                className={`px-2.5 py-1 rounded-lg text-xs font-bold transition-all ${
+                  fontSize === "lg" ? "bg-[#D4F639] text-slate-950 font-black shadow-sm" : "text-slate-600 hover:text-slate-950"
                 }`}
                 title="Large Font Size"
               >
@@ -140,24 +138,24 @@ export default function ChapterReader({ chapter }: ChapterReaderProps) {
             {/* Simulated Audio Narration Teaser */}
             <button
               onClick={() => setAudioPlaying(!audioPlaying)}
-              className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg border transition-all ${
+              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl border transition-all text-xs font-bold ${
                 audioPlaying
-                  ? "bg-violet-600/30 border-violet-400 text-violet-300"
-                  : "bg-slate-950/80 border-slate-800 text-slate-400 hover:text-white"
+                  ? "bg-[#D4F639] border-[#c4e92d] text-slate-950 shadow-sm"
+                  : "bg-slate-100 border-slate-200 text-slate-700 hover:text-slate-950"
               }`}
               title="Simulated Audio Snippet"
             >
-              {audioPlaying ? <Volume2 className="h-3.5 w-3.5 animate-pulse text-cyan-300" /> : <VolumeX className="h-3.5 w-3.5" />}
+              {audioPlaying ? <Volume2 className="h-3.5 w-3.5 animate-pulse text-slate-950" /> : <VolumeX className="h-3.5 w-3.5" />}
               <span className="hidden md:inline">{audioPlaying ? "Playing Ambient..." : "Audio Snip"}</span>
             </button>
 
             {/* Share / Copy Excerpt Link */}
             <button
               onClick={handleShare}
-              className="p-1.5 rounded-lg bg-slate-950/80 border border-slate-800 text-slate-400 hover:text-cyan-300 transition-colors"
+              className="p-2 rounded-xl bg-slate-100 border border-slate-200 text-slate-700 hover:text-slate-950 transition-colors"
               title="Copy link to chapter"
             >
-              {copied ? <Check className="h-3.5 w-3.5 text-emerald-400" /> : <Share2 className="h-3.5 w-3.5" />}
+              {copied ? <Check className="h-3.5 w-3.5 text-emerald-600 stroke-[3]" /> : <Share2 className="h-3.5 w-3.5" />}
             </button>
           </div>
         </div>
@@ -166,32 +164,32 @@ export default function ChapterReader({ chapter }: ChapterReaderProps) {
       {/* Chapter Reader Container */}
       <article className="max-w-3xl mx-auto px-4 sm:px-6">
         {/* Atmospheric Transmission Header */}
-        <div className="mb-10 p-5 rounded-2xl bg-void-900/60 border border-cyan-500/20 space-y-2">
-          <div className="flex items-center justify-between text-[11px] font-mono text-cyan-400">
+        <div className="mb-10 p-6 rounded-3xl bg-white border border-slate-200/80 shadow-sm space-y-2">
+          <div className="flex items-center justify-between text-[11px] font-mono text-slate-950 font-bold">
             <span className="flex items-center gap-1.5">
-              <Radio className="h-3 w-3 animate-pulse" />
+              <Radio className="h-3 w-3 animate-pulse text-slate-900" />
               DECRYPTED LOG
             </span>
             <span>FREQ: 1420.405 MHz</span>
           </div>
-          <p className="text-xs font-mono text-slate-400 tracking-wider">
+          <p className="text-xs font-mono text-slate-600 tracking-wider">
             {chapter.transmissionLog}
           </p>
         </div>
 
         {/* Chapter Title Headings */}
         <header className="mb-12 text-center space-y-3">
-          <span className="text-xs font-mono tracking-widest text-cyan-400 uppercase">
+          <span className="text-xs font-mono tracking-widest text-slate-600 font-bold uppercase">
             {chapter.subtitle}
           </span>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-950 tracking-tight">
             {chapter.title}
           </h1>
-          <div className="w-16 h-0.5 bg-gradient-to-r from-transparent via-cyan-400 to-transparent mx-auto mt-4" />
+          <div className="w-16 h-1 bg-[#D4F639] mx-auto mt-4 rounded-full" />
         </header>
 
         {/* Story Prose */}
-        <div className={`space-y-6 text-slate-200 ${fontClass} ${sizeClasses[fontSize]}`}>
+        <div className={`space-y-6 text-slate-800 ${fontClass} ${sizeClasses[fontSize]}`}>
           {chapter.paragraphs.map((para, index) => (
             <p
               key={index}
@@ -203,41 +201,41 @@ export default function ChapterReader({ chapter }: ChapterReaderProps) {
         </div>
 
         {/* Divider with sci-fi glyph */}
-        <div className="my-16 flex items-center justify-center gap-4 text-cyan-400/40">
-          <div className="w-16 sm:w-24 h-[1px] bg-cyan-500/30" />
-          <span className="font-mono text-xs tracking-widest text-cyan-400">// END OF TRANSMISSION EXCERPT //</span>
-          <div className="w-16 sm:w-24 h-[1px] bg-cyan-500/30" />
+        <div className="my-16 flex items-center justify-center gap-4 text-slate-400">
+          <div className="w-16 sm:w-24 h-[1px] bg-slate-300" />
+          <span className="font-mono text-xs tracking-widest text-slate-600 font-bold">{"// END OF TRANSMISSION EXCERPT //"}</span>
+          <div className="w-16 sm:w-24 h-[1px] bg-slate-300" />
         </div>
 
         {/* Call To Action Box at End of Chapter */}
-        <div className="p-8 sm:p-10 rounded-3xl bg-gradient-to-br from-void-900 via-void-850 to-void-950 border border-cyan-500/40 text-center space-y-6 shadow-2xl shadow-cyan-500/10">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-xs font-mono text-cyan-300">
-            <Sparkles className="h-3.5 w-3.5 text-cyan-400" />
+        <div className="p-8 sm:p-12 rounded-3xl bg-white border border-slate-200 text-center space-y-6 shadow-xl">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#D4F639]/35 border border-[#D4F639] text-xs font-mono text-slate-950 font-bold">
+            <Sparkles className="h-3.5 w-3.5 text-slate-900" />
             <span>CONTINUE THE EXPEDITION</span>
           </div>
 
-          <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+          <h3 className="text-2xl sm:text-3xl font-black text-slate-950 tracking-tight">
             The Signal Has Only Just Begun
           </h3>
 
-          <p className="text-sm sm:text-base text-slate-300 max-w-xl mx-auto leading-relaxed">
+          <p className="text-sm sm:text-base text-slate-600 max-w-xl mx-auto leading-relaxed">
             Discover what lies behind the twelve-million-year-old Dyson construct in the full 464-page novel. Available now in collector&apos;s hardcover, paperback, and instant digital editions.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
             <button
               onClick={() => setBuyModalOpen(true)}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-bold text-sm uppercase tracking-wider shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40 transition-all cursor-pointer"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-2xl bg-[#D4F639] hover:bg-[#c4e92d] text-slate-950 font-black text-xs uppercase tracking-wider shadow-md shadow-[#D4F639]/30 hover:shadow-[#D4F639]/50 transition-all cursor-pointer border border-[#c4e92d]"
             >
-              <ShoppingBag className="h-4 w-4" />
+              <ShoppingBag className="h-4 w-4 stroke-[2.5]" />
               <span>Get the Full Book</span>
             </button>
             <a
               href="/about"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-slate-900/80 hover:bg-slate-800 border border-slate-700 hover:border-slate-500 text-slate-200 font-semibold text-sm transition-all"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-4 rounded-2xl bg-slate-950 hover:bg-slate-800 text-white font-bold text-xs uppercase tracking-wider transition-all"
             >
               <span>Explore Lore & Cast</span>
-              <ArrowRight className="h-4 w-4" />
+              <ArrowRight className="h-4 w-4 stroke-[2.5]" />
             </a>
           </div>
         </div>

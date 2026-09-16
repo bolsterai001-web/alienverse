@@ -62,10 +62,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${orbitron.variable} dark scroll-smooth`}>
-      <body className="min-h-screen flex flex-col bg-void-950 text-slate-100 antialiased selection:bg-cyan-500/30 selection:text-cyan-300">
-        {/* Ambient cosmic grid and star background layers */}
-        <div className="fixed inset-0 cosmic-grid opacity-30 pointer-events-none -z-20" />
+    <html lang="en" className={`${inter.variable} ${orbitron.variable} scroll-smooth`}>
+      <body className="min-h-screen flex flex-col bg-[#ebf1ea] text-slate-900 antialiased selection:bg-[#D4F639] selection:text-black">
+        {/* Ambient background grid and aura layers */}
+        <div className="fixed inset-0 cosmic-grid opacity-60 pointer-events-none -z-20" />
         <div className="fixed inset-0 cosmic-glow-radial pointer-events-none -z-10" />
 
         {/* Global Navigation */}

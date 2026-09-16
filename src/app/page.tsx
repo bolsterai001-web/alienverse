@@ -8,13 +8,8 @@ import {
   BookOpen, 
   ShoppingBag, 
   Star, 
-  ShieldCheck, 
   Radio, 
-  Atom, 
-  Compass, 
-  ExternalLink,
   ChevronRight,
-  Flame
 } from "lucide-react";
 import BookCover3D from "@/components/BookCover3D";
 import BuyModal from "@/components/BuyModal";
@@ -36,38 +31,38 @@ export default function HomePage() {
           <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
             
             {/* Top Accolade Pill */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-xs font-mono text-cyan-300 shadow-sm shadow-cyan-500/10">
-              <Sparkles className="h-3.5 w-3.5 text-cyan-400" />
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#D4F639]/35 border border-[#D4F639] text-xs font-mono text-slate-950 font-bold shadow-sm">
+              <Sparkles className="h-3.5 w-3.5 text-slate-950" />
               <span>#1 SCI-FI BESTSELLER • GALAXY AWARD WINNER</span>
             </div>
 
             {/* Main Headline */}
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-white leading-[1.1]">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight text-slate-950 leading-[1.08]">
               Beyond the Event Horizon Lies the{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-teal-300 to-violet-400">
+              <span className="bg-[#D4F639] px-2 py-0.5 rounded-xl text-black inline-block">
                 First Verse.
               </span>
             </h1>
 
             {/* Author Byline & Rating Snippet */}
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 text-sm">
-              <span className="font-semibold text-white tracking-wide">
-                By <Link href="/author" className="text-cyan-400 hover:underline">{BOOK_INFO.author}</Link>
+              <span className="font-bold text-slate-950 tracking-wide">
+                By <Link href="/author" className="underline decoration-[#D4F639] decoration-4 underline-offset-2 hover:text-black">{BOOK_INFO.author}</Link>
               </span>
-              <span className="text-slate-600">•</span>
-              <div className="flex items-center gap-1.5 text-amber-400 font-mono text-xs">
+              <span className="text-slate-300">•</span>
+              <div className="flex items-center gap-1.5 font-mono text-xs">
                 <div className="flex items-center">
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} className="h-3.5 w-3.5 fill-amber-400 text-amber-400" />
                   ))}
                 </div>
-                <span className="font-bold text-slate-200">4.9 / 5.0</span>
-                <span className="text-slate-400">(1,420+ verified ratings)</span>
+                <span className="font-black text-slate-950">4.9 / 5.0</span>
+                <span className="text-slate-500 font-medium">(1,420+ verified ratings)</span>
               </div>
             </div>
 
             {/* Hero Subhead / Hook */}
-            <p className="text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+            <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto lg:mx-0 font-medium">
               {BOOK_INFO.synopsis}
             </p>
 
@@ -75,33 +70,33 @@ export default function HomePage() {
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
               <button
                 onClick={() => setBuyModalOpen(true)}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-extrabold text-sm uppercase tracking-wider shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40 transition-all cursor-pointer active:scale-95"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-2xl bg-[#D4F639] hover:bg-[#c4e92d] text-slate-950 font-black text-sm uppercase tracking-wider shadow-lg shadow-[#D4F639]/30 hover:shadow-[#D4F639]/50 transition-all cursor-pointer active:scale-95 border border-[#c4e92d]"
               >
-                <ShoppingBag className="h-4 w-4" />
+                <ShoppingBag className="h-4 w-4 stroke-[2.5]" />
                 <span>Get Your Copy Now</span>
               </button>
 
               <Link
                 href="/sample-chapter"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-slate-900/90 hover:bg-slate-800 border border-slate-700 hover:border-cyan-400/60 text-slate-200 font-semibold text-sm transition-all"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-4 rounded-2xl bg-slate-950 hover:bg-slate-800 text-white font-bold text-sm transition-all shadow-md group"
               >
-                <BookOpen className="h-4 w-4 text-cyan-400" />
+                <BookOpen className="h-4 w-4" />
                 <span>Read Free Excerpt</span>
-                <ArrowRight className="h-3.5 w-3.5" />
+                <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform stroke-[2.5]" />
               </Link>
             </div>
 
             {/* Retailer Quick Badges */}
-            <div className="pt-4 border-t border-slate-800/80">
-              <p className="text-[11px] font-mono uppercase tracking-widest text-slate-400 mb-2">
+            <div className="pt-4 border-t border-slate-200">
+              <p className="text-[11px] font-mono uppercase tracking-widest text-slate-500 mb-2.5 font-bold">
                 Available through trusted booksellers worldwide:
               </p>
-              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 text-xs text-slate-400">
+              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2.5 text-xs">
                 {RETAILERS.map((retailer) => (
                   <button
                     key={retailer.id}
                     onClick={() => setBuyModalOpen(true)}
-                    className="hover:text-cyan-300 font-medium transition-colors bg-slate-900/60 px-2.5 py-1 rounded-md border border-slate-800 hover:border-slate-700"
+                    className="font-bold transition-all bg-white px-3 py-1.5 rounded-xl border border-slate-200/80 text-slate-700 hover:text-slate-950 hover:border-[#D4F639] hover:bg-white shadow-sm"
                   >
                     {retailer.name}
                   </button>
@@ -118,17 +113,17 @@ export default function HomePage() {
       </section>
 
       {/* 2. CRITICAL ACCLAIM STRIP */}
-      <section className="border-y border-cyan-500/20 bg-void-900/50 py-8">
+      <section className="border-y border-slate-200/80 bg-white/70 backdrop-blur-md py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center md:text-left">
             {REVIEWS.slice(0, 3).map((rev) => (
-              <div key={rev.id} className="p-4 rounded-xl bg-void-950/60 border border-slate-800/80">
-                <p className="text-xs sm:text-sm text-slate-300 italic mb-2 line-clamp-3">
+              <div key={rev.id} className="p-5 rounded-2xl bg-white border border-slate-200/80 shadow-sm">
+                <p className="text-xs sm:text-sm text-slate-700 italic mb-3 line-clamp-3">
                   &ldquo;{rev.quote}&rdquo;
                 </p>
-                <div className="flex items-center justify-between text-xs pt-1 border-t border-slate-800/60">
-                  <span className="font-semibold text-white">{rev.author}</span>
-                  <span className="text-[10px] font-mono text-cyan-400">{rev.source}</span>
+                <div className="flex items-center justify-between text-xs pt-2 border-t border-slate-100">
+                  <span className="font-extrabold text-slate-950">{rev.author}</span>
+                  <span className="text-[10px] font-mono font-bold text-slate-500">{rev.source}</span>
                 </div>
               </div>
             ))}
@@ -141,16 +136,16 @@ export default function HomePage() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
           <div className="lg:col-span-6 space-y-6">
-            <div className="inline-flex items-center gap-2 text-xs font-mono text-cyan-400 tracking-wider">
-              <Radio className="h-3.5 w-3.5" />
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#D4F639]/30 border border-[#D4F639] text-xs font-mono text-slate-950 font-bold tracking-wider">
+              <Radio className="h-3.5 w-3.5 text-slate-900" />
               <span>THE EXPEDITION PREMISE</span>
             </div>
             
-            <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
+            <h2 className="text-3xl sm:text-4xl font-black text-slate-950 tracking-tight">
               An Ancient Megastructure. A Slumbering Chorus.
             </h2>
 
-            <div className="space-y-4 text-slate-300 leading-relaxed text-sm sm:text-base">
+            <div className="space-y-4 text-slate-600 leading-relaxed text-sm sm:text-base">
               {BOOK_INFO.fullBlurb.map((paragraph, index) => (
                 <p key={index}>{paragraph}</p>
               ))}
@@ -159,9 +154,9 @@ export default function HomePage() {
             {/* Core Pillars */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4">
               {BOOK_INFO.features.map((feat, i) => (
-                <div key={i} className="p-4 rounded-xl bg-void-900/60 border border-slate-800">
-                  <h4 className="font-bold text-white text-sm mb-1">{feat.title}</h4>
-                  <p className="text-xs text-slate-400 leading-normal">{feat.description}</p>
+                <div key={i} className="p-5 rounded-2xl bg-white border border-slate-200 shadow-sm hover:border-[#D4F639] transition-colors">
+                  <h4 className="font-extrabold text-slate-950 text-sm mb-1">{feat.title}</h4>
+                  <p className="text-xs text-slate-500 leading-normal">{feat.description}</p>
                 </div>
               ))}
             </div>
@@ -169,56 +164,56 @@ export default function HomePage() {
             <div className="pt-2">
               <Link
                 href="/about"
-                className="inline-flex items-center gap-2 text-sm font-semibold text-cyan-400 hover:text-cyan-300 transition-colors"
+                className="inline-flex items-center gap-2 text-sm font-extrabold text-slate-950 hover:underline transition-all"
               >
                 <span>Read in-depth universe lore & character dossiers</span>
-                <ChevronRight className="h-4 w-4" />
+                <ChevronRight className="h-4 w-4 stroke-[2.5]" />
               </Link>
             </div>
           </div>
 
           {/* Book Specs & Format Table Card */}
           <div className="lg:col-span-6">
-            <div className="glass-panel p-6 sm:p-8 rounded-3xl space-y-6">
-              <div className="flex items-center justify-between border-b border-slate-800 pb-4">
-                <h3 className="text-xl font-bold text-white">Publication Dossier</h3>
-                <span className="text-xs font-mono text-cyan-400 px-2.5 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30">
+            <div className="bg-white p-6 sm:p-8 rounded-3xl border border-slate-200 shadow-lg space-y-6">
+              <div className="flex items-center justify-between border-b border-slate-100 pb-4">
+                <h3 className="text-xl font-black text-slate-950">Publication Dossier</h3>
+                <span className="text-xs font-mono text-slate-950 font-bold px-2.5 py-1 rounded-full bg-[#D4F639]/35 border border-[#D4F639]">
                   OFFICIAL RELEASE
                 </span>
               </div>
 
               <div className="grid grid-cols-2 gap-4 text-sm">
                 <div>
-                  <span className="text-xs font-mono text-slate-400 uppercase">Title</span>
-                  <p className="font-semibold text-white">{BOOK_INFO.title}</p>
+                  <span className="text-xs font-mono text-slate-400 uppercase font-bold">Title</span>
+                  <p className="font-bold text-slate-950">{BOOK_INFO.title}</p>
                 </div>
                 <div>
-                  <span className="text-xs font-mono text-slate-400 uppercase">Author</span>
-                  <p className="font-semibold text-white">{BOOK_INFO.author}</p>
+                  <span className="text-xs font-mono text-slate-400 uppercase font-bold">Author</span>
+                  <p className="font-bold text-slate-950">{BOOK_INFO.author}</p>
                 </div>
                 <div>
-                  <span className="text-xs font-mono text-slate-400 uppercase">Length</span>
-                  <p className="font-semibold text-white">{BOOK_INFO.specs.pages} Pages</p>
+                  <span className="text-xs font-mono text-slate-400 uppercase font-bold">Length</span>
+                  <p className="font-bold text-slate-950">{BOOK_INFO.specs.pages} Pages</p>
                 </div>
                 <div>
-                  <span className="text-xs font-mono text-slate-400 uppercase">Release Date</span>
-                  <p className="font-semibold text-white">{BOOK_INFO.specs.published}</p>
+                  <span className="text-xs font-mono text-slate-400 uppercase font-bold">Release Date</span>
+                  <p className="font-bold text-slate-950">{BOOK_INFO.specs.published}</p>
                 </div>
                 <div>
-                  <span className="text-xs font-mono text-slate-400 uppercase">ISBN-13</span>
-                  <p className="font-mono text-cyan-300">{BOOK_INFO.specs.isbn}</p>
+                  <span className="text-xs font-mono text-slate-400 uppercase font-bold">ISBN-13</span>
+                  <p className="font-mono text-slate-900 font-bold">{BOOK_INFO.specs.isbn}</p>
                 </div>
                 <div>
-                  <span className="text-xs font-mono text-slate-400 uppercase">Publisher</span>
-                  <p className="font-semibold text-white">{BOOK_INFO.specs.publisher}</p>
+                  <span className="text-xs font-mono text-slate-400 uppercase font-bold">Publisher</span>
+                  <p className="font-bold text-slate-950">{BOOK_INFO.specs.publisher}</p>
                 </div>
               </div>
 
-              <div className="border-t border-slate-800 pt-5 space-y-3">
-                <span className="text-xs font-mono text-slate-400 uppercase">Available Formats</span>
+              <div className="border-t border-slate-100 pt-5 space-y-3">
+                <span className="text-xs font-mono text-slate-400 uppercase font-bold">Available Formats</span>
                 <div className="flex flex-wrap gap-2">
                   {["Collector's Hardcover", "Trade Paperback", "Amazon Kindle", "ePub / Apple Books", "Unabridged Audiobook"].map((fmt) => (
-                    <span key={fmt} className="text-xs px-3 py-1 rounded-lg bg-slate-900 border border-slate-800 text-slate-300">
+                    <span key={fmt} className="text-xs px-3 py-1.5 rounded-xl bg-slate-100 border border-slate-200 text-slate-700 font-medium">
                       {fmt}
                     </span>
                   ))}
@@ -227,9 +222,9 @@ export default function HomePage() {
 
               <button
                 onClick={() => setBuyModalOpen(true)}
-                className="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-cyan-500/20 hover:bg-cyan-500/30 border border-cyan-400/40 text-cyan-300 font-bold text-xs uppercase tracking-wider transition-all"
+                className="w-full flex items-center justify-center gap-2 py-3.5 rounded-2xl bg-[#D4F639] hover:bg-[#c4e92d] text-slate-950 font-black text-xs uppercase tracking-wider transition-all shadow-sm border border-[#c4e92d]"
               >
-                <ShoppingBag className="h-4 w-4" />
+                <ShoppingBag className="h-4 w-4 stroke-[2.5]" />
                 <span>Acquire from Authorized Retailer</span>
               </button>
             </div>
@@ -239,30 +234,30 @@ export default function HomePage() {
 
       {/* 4. SAMPLE EXCERPT TEASER */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="relative rounded-3xl overflow-hidden border border-cyan-500/30 bg-void-900/90 p-8 sm:p-12">
+        <div className="relative rounded-3xl overflow-hidden border border-slate-200 bg-white p-8 sm:p-12 shadow-lg">
           <div className="max-w-3xl space-y-6">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-xs font-mono text-cyan-300">
-              <BookOpen className="h-3.5 w-3.5" />
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#D4F639]/35 border border-[#D4F639] text-xs font-mono text-slate-950 font-bold">
+              <BookOpen className="h-3.5 w-3.5 text-slate-900" />
               <span>CHAPTER 001 TEASER</span>
             </div>
 
-            <h3 className="text-2xl sm:text-3xl font-bold text-white">
+            <h3 className="text-2xl sm:text-3xl md:text-4xl font-black text-slate-950">
               &ldquo;{SAMPLE_CHAPTER.excerpt}&rdquo;
             </h3>
 
-            <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
+            <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
               Read the opening transmission from the Kepler-452 Abyss. Experience the atmospheric tension, hard astrophysics, and terrifying first contact that has captivated sci-fi readers across the globe.
             </p>
 
             <div className="flex flex-wrap items-center gap-4 pt-2">
               <Link
                 href="/sample-chapter"
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-bold text-sm uppercase tracking-wider transition-all shadow-md shadow-cyan-500/20"
+                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-2xl bg-[#D4F639] hover:bg-[#c4e92d] text-slate-950 font-black text-xs uppercase tracking-wider transition-all shadow-md shadow-[#D4F639]/30"
               >
                 <span>Read Full Sample Chapter</span>
-                <ArrowRight className="h-4 w-4" />
+                <ArrowRight className="h-4 w-4 stroke-[2.5]" />
               </Link>
-              <span className="text-xs font-mono text-slate-400">
+              <span className="text-xs font-mono text-slate-500 font-semibold">
                 8-minute read • No email required
               </span>
             </div>
@@ -273,14 +268,14 @@ export default function HomePage() {
       {/* 5. REVIEWS & TESTIMONIALS GRID */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
         <div className="text-center space-y-3 max-w-2xl mx-auto">
-          <div className="inline-flex items-center gap-2 text-xs font-mono text-cyan-400 uppercase tracking-wider">
-            <Star className="h-3.5 w-3.5 fill-cyan-400" />
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#D4F639]/30 border border-[#D4F639] text-xs font-mono text-slate-950 font-bold uppercase tracking-wider">
+            <Star className="h-3.5 w-3.5 fill-slate-900 text-slate-900" />
             <span>CRITICAL PRAISE & COMMUNITY REVIEWS</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-bold text-white tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-black text-slate-950 tracking-tight">
             Loved by Readers, Acclaimed by Critics
           </h2>
-          <p className="text-sm text-slate-300">
+          <p className="text-sm text-slate-600">
             Read honest opinions from leading science fiction critics, bestselling authors, and passionate space opera readers.
           </p>
         </div>
@@ -294,10 +289,10 @@ export default function HomePage() {
         <div className="text-center pt-4">
           <Link
             href="/reviews"
-            className="inline-flex items-center gap-2 text-sm font-semibold text-cyan-400 hover:text-cyan-300 transition-colors"
+            className="inline-flex items-center gap-2 text-sm font-extrabold text-slate-950 hover:underline transition-colors"
           >
             <span>View all editorial quotes & rating breakdowns</span>
-            <ArrowRight className="h-4 w-4" />
+            <ArrowRight className="h-4 w-4 stroke-[2.5]" />
           </Link>
         </div>
       </section>
@@ -309,28 +304,28 @@ export default function HomePage() {
 
       {/* 7. FINAL CALL TO ACTION BANNER */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="relative rounded-3xl overflow-hidden border border-cyan-500/40 bg-gradient-to-r from-void-950 via-void-900 to-void-950 p-8 sm:p-14 text-center space-y-6 shadow-2xl">
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-cyan-500/15 via-transparent to-transparent pointer-events-none" />
+        <div className="relative rounded-3xl overflow-hidden border border-slate-200 bg-white p-8 sm:p-14 text-center space-y-6 shadow-xl">
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#D4F639]/25 via-transparent to-transparent pointer-events-none" />
           
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight relative z-10">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-950 tracking-tight relative z-10">
             Begin Your Voyage Into the Verse
           </h2>
           
-          <p className="text-sm sm:text-base text-slate-300 max-w-2xl mx-auto leading-relaxed relative z-10">
+          <p className="text-sm sm:text-base text-slate-600 max-w-2xl mx-auto leading-relaxed relative z-10">
             Order your copy today in hardcover, paperback, or instant eBook format. Prepare for an unforgettable journey to the edge of known space.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4 relative z-10">
             <button
               onClick={() => setBuyModalOpen(true)}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-bold text-sm uppercase tracking-wider shadow-xl shadow-cyan-500/25 transition-all"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 rounded-2xl bg-[#D4F639] hover:bg-[#c4e92d] text-slate-950 font-black text-sm uppercase tracking-wider shadow-lg shadow-[#D4F639]/30 hover:shadow-[#D4F639]/50 transition-all border border-[#c4e92d]"
             >
-              <ShoppingBag className="h-4 w-4" />
+              <ShoppingBag className="h-4 w-4 stroke-[2.5]" />
               <span>Acquire Alien Verse</span>
             </button>
             <Link
               href="/author"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-4 rounded-xl bg-slate-900/80 border border-slate-700 hover:border-slate-500 text-slate-300 font-semibold text-sm transition-all"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-4 rounded-2xl bg-slate-950 hover:bg-slate-800 text-white font-bold text-sm transition-all"
             >
               <span>Meet Author Elias Vance</span>
             </Link>

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { X, ExternalLink, BookOpen, ShoppingCart, Check, ShieldCheck, Sparkles } from "lucide-react";
+import { X, ExternalLink, ShieldCheck, Sparkles } from "lucide-react";
 import { RETAILERS, BOOK_INFO } from "@/data/bookData";
 
 interface BuyModalProps {
@@ -26,37 +26,37 @@ export default function BuyModal({ isOpen, onClose }: BuyModalProps) {
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-fade-in"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/60 backdrop-blur-sm animate-fade-in"
       onClick={onClose}
       role="dialog"
       aria-modal="true"
       aria-labelledby="modal-title"
     >
       <div
-        className="relative w-full max-w-2xl overflow-hidden rounded-2xl border border-cyan-500/30 bg-void-900/95 p-6 md:p-8 shadow-2xl shadow-cyan-500/10 text-slate-100 max-h-[90vh] flex flex-col"
+        className="relative w-full max-w-2xl overflow-hidden rounded-3xl border border-slate-200 bg-white p-6 md:p-8 shadow-2xl text-slate-900 max-h-[90vh] flex flex-col"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Ambient background glow inside modal */}
-        <div className="absolute -top-24 -right-24 h-48 w-48 rounded-full bg-cyan-500/15 blur-3xl pointer-events-none" />
-        <div className="absolute -bottom-24 -left-24 h-48 w-48 rounded-full bg-violet-600/15 blur-3xl pointer-events-none" />
+        {/* Fineed ambient background glows */}
+        <div className="absolute -top-24 -right-24 h-48 w-48 rounded-full bg-[#D4F639]/25 blur-3xl pointer-events-none" />
+        <div className="absolute -bottom-24 -left-24 h-48 w-48 rounded-full bg-orange-200/25 blur-3xl pointer-events-none" />
 
         {/* Modal Header */}
-        <div className="flex items-start justify-between border-b border-slate-800 pb-5">
+        <div className="flex items-start justify-between border-b border-slate-100 pb-5">
           <div>
-            <div className="flex items-center gap-2 text-xs font-mono text-cyan-400 tracking-wider">
-              <Sparkles className="h-3.5 w-3.5 text-cyan-400" />
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#D4F639]/30 border border-[#D4F639] text-xs font-mono text-slate-950 font-bold tracking-wider mb-2">
+              <Sparkles className="h-3.5 w-3.5 text-slate-900" />
               <span>OFFICIAL RETAIL DISPATCH</span>
             </div>
-            <h2 id="modal-title" className="mt-1 text-2xl font-bold tracking-tight text-white flex items-center gap-2">
-              Acquire <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-violet-400">{BOOK_INFO.title}</span>
+            <h2 id="modal-title" className="text-2xl font-black tracking-tight text-slate-950 flex items-center gap-2">
+              Acquire <span className="bg-[#D4F639] px-2 py-0.5 rounded-lg text-black">{BOOK_INFO.title}</span>
             </h2>
-            <p className="mt-1 text-sm text-slate-400">
+            <p className="mt-1 text-sm text-slate-600">
               Select your preferred bookseller. Dispatched directly through official literary distributors.
             </p>
           </div>
           <button
             onClick={onClose}
-            className="rounded-lg p-2 text-slate-400 hover:bg-slate-800 hover:text-white transition-colors"
+            className="rounded-xl p-2 text-slate-400 hover:bg-slate-100 hover:text-slate-950 transition-colors"
             aria-label="Close modal"
           >
             <X className="h-5 w-5" />
@@ -64,8 +64,8 @@ export default function BuyModal({ isOpen, onClose }: BuyModalProps) {
         </div>
 
         {/* Format Selector Pills */}
-        <div className="py-4 border-b border-slate-800/80">
-          <p className="text-xs font-mono uppercase tracking-wider text-slate-400 mb-2">
+        <div className="py-4 border-b border-slate-100">
+          <p className="text-xs font-mono uppercase tracking-wider text-slate-500 mb-2 font-bold">
             Filter by Edition:
           </p>
           <div className="flex flex-wrap gap-2">
@@ -73,10 +73,10 @@ export default function BuyModal({ isOpen, onClose }: BuyModalProps) {
               <button
                 key={fmt}
                 onClick={() => setSelectedFormat(fmt)}
-                className={`text-xs px-3 py-1.5 rounded-full transition-all border ${
+                className={`text-xs px-3.5 py-1.5 rounded-full transition-all border ${
                   selectedFormat === fmt
-                    ? "bg-cyan-500/20 border-cyan-400 text-cyan-300 shadow-sm shadow-cyan-500/20 font-medium"
-                    : "bg-slate-900/60 border-slate-800 text-slate-400 hover:border-slate-700 hover:text-slate-300"
+                    ? "bg-[#D4F639] border-[#c4e92d] text-slate-950 font-black shadow-sm"
+                    : "bg-slate-100 border-slate-200 text-slate-600 hover:border-slate-300 hover:text-slate-900 font-semibold"
                 }`}
               >
                 {fmt}
@@ -90,24 +90,24 @@ export default function BuyModal({ isOpen, onClose }: BuyModalProps) {
           {filteredRetailers.map((retailer) => (
             <div
               key={retailer.id}
-              className="group relative flex flex-col sm:flex-row sm:items-center justify-between p-4 rounded-xl bg-slate-900/70 border border-slate-800 hover:border-cyan-500/40 hover:bg-slate-900/90 transition-all duration-200 gap-3"
+              className="group relative flex flex-col sm:flex-row sm:items-center justify-between p-4 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-[#D4F639] hover:bg-white hover:shadow-md transition-all duration-200 gap-3"
             >
               <div className="space-y-1">
                 <div className="flex items-center gap-2 flex-wrap">
-                  <span className="font-semibold text-white text-base group-hover:text-cyan-300 transition-colors">
+                  <span className="font-extrabold text-slate-950 text-base">
                     {retailer.name}
                   </span>
                   {retailer.featured && (
-                    <span className="text-[10px] uppercase font-mono px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-400 border border-cyan-500/30">
+                    <span className="text-[10px] uppercase font-mono px-2 py-0.5 rounded-md bg-[#D4F639] text-black font-black border border-[#c4e92d]">
                       Popular
                     </span>
                   )}
-                  <span className="text-xs text-slate-400">
+                  <span className="text-xs text-slate-500">
                     • {retailer.badge}
                   </span>
                 </div>
-                <div className="flex items-center gap-2 text-xs text-slate-400">
-                  <span className="text-slate-300 font-medium">{retailer.priceHint}</span>
+                <div className="flex items-center gap-2 text-xs text-slate-500">
+                  <span className="text-slate-800 font-bold">{retailer.priceHint}</span>
                   <span>•</span>
                   <span>{retailer.formats.join(", ")}</span>
                 </div>
@@ -117,24 +117,24 @@ export default function BuyModal({ isOpen, onClose }: BuyModalProps) {
                 href={retailer.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-semibold text-xs tracking-wide transition-all shadow-md shadow-cyan-500/10 hover:shadow-cyan-500/25 shrink-0"
+                className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-[#D4F639] hover:bg-[#c4e92d] text-slate-950 font-black text-xs tracking-wide transition-all shadow-sm hover:shadow-md shrink-0"
               >
                 <span>Buy on {retailer.name}</span>
-                <ExternalLink className="h-3.5 w-3.5" />
+                <ExternalLink className="h-3.5 w-3.5 stroke-[2.5]" />
               </a>
             </div>
           ))}
         </div>
 
         {/* Notice & Disclaimer footer */}
-        <div className="pt-4 border-t border-slate-800 flex items-center justify-between text-xs text-slate-400">
+        <div className="pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500">
           <div className="flex items-center gap-2">
-            <ShieldCheck className="h-4 w-4 text-cyan-400 shrink-0" />
+            <ShieldCheck className="h-4 w-4 text-slate-900 shrink-0" />
             <span>Direct link to verified sellers. No on-site transactions.</span>
           </div>
           <button
             onClick={onClose}
-            className="text-slate-400 hover:text-white underline underline-offset-2 transition-colors"
+            className="text-slate-600 hover:text-slate-950 underline underline-offset-2 transition-colors font-medium"
           >
             Return to site
           </button>

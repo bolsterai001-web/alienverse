@@ -1,22 +1,19 @@
 @import "tailwindcss";
 
 @theme {
-  --color-void-950: #030611;
-  --color-void-900: #070d21;
-  --color-void-850: #0c1533;
-  --color-void-800: #121f45;
-  --color-void-700: #1b2c5c;
-  --color-cyan-glow: #00f5d4;
-  --color-cyan-dim: #06b6d4;
-  --color-violet-glow: #a855f7;
-  --color-violet-deep: #6366f1;
-  --color-amber-glow: #f59e0b;
-  --color-neon-blue: #38bdf8;
+  --color-lime-brand: #D4F639;
+  --color-lime-hover: #c4e92d;
+  --color-lime-subtle: #f4fcd9;
+  --color-canvas: #ebf1ea;
+  --color-canvas-subtle: #f3f7f2;
+  --color-card: #ffffff;
+  --color-dark-main: #0f172a;
+  --color-dark-muted: #475569;
 }
 
 :root {
-  --background: #030611;
-  --foreground: #f1f5f9;
+  --background: #ebf1ea;
+  --foreground: #0f172a;
 }
 
 body {
@@ -27,51 +24,53 @@ body {
 }
 
 ::selection {
-  background-color: rgba(0, 245, 212, 0.3);
-  color: #00f5d4;
+  background-color: #D4F639;
+  color: #000000;
 }
 
-/* Custom sci-fi scrollbar */
+/* Custom modern scrollbar matching Fineed sage & lime */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #030611;
+  background: #ebf1ea;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #162244;
-  border-radius: 4px;
-  border: 1px solid rgba(0, 245, 212, 0.2);
+  background: #cbd5e1;
+  border-radius: 9999px;
+  border: 2px solid #ebf1ea;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #00f5d4;
+  background: #D4F639;
 }
 
-/* Sci-Fi glowing background utilities */
+/* Subtle background grid */
 .cosmic-grid {
   background-size: 40px 40px;
   background-image: 
-    linear-gradient(to right, rgba(14, 165, 233, 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(14, 165, 233, 0.05) 1px, transparent 1px);
+    linear-gradient(to right, rgba(15, 23, 42, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.04) 1px, transparent 1px);
 }
 
+/* Radial aura glows matching Fineed's pastel lime & sunset/sky halo */
 .cosmic-glow-radial {
-  background: radial-gradient(circle at 50% 20%, rgba(0, 245, 212, 0.12) 0%, rgba(139, 92, 246, 0.08) 40%, transparent 70%);
+  background: radial-gradient(circle at 50% 15%, rgba(212, 246, 57, 0.3) 0%, rgba(253, 186, 116, 0.15) 35%, rgba(147, 197, 253, 0.12) 60%, transparent 75%);
 }
 
 .cosmic-radial-bottom {
-  background: radial-gradient(circle at 50% 80%, rgba(99, 102, 241, 0.15) 0%, rgba(0, 245, 212, 0.05) 50%, transparent 70%);
+  background: radial-gradient(circle at 50% 85%, rgba(212, 246, 57, 0.2) 0%, rgba(253, 186, 116, 0.1) 45%, transparent 70%);
 }
 
-/* Glassmorphism */
+/* Fineed-style Clean Modern Glass Cards */
 .glass-panel {
-  background: rgba(12, 21, 51, 0.65);
+  background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(56, 189, 248, 0.18);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.04);
 }
 
 .glass-panel-hover {
@@ -79,39 +78,39 @@ body {
 }
 
 .glass-panel-hover:hover {
-  border-color: rgba(0, 245, 212, 0.5);
-  box-shadow: 0 0 25px rgba(0, 245, 212, 0.15);
-  transform: translateY(-2px);
+  border-color: rgba(212, 246, 57, 0.85);
+  box-shadow: 0 12px 30px -4px rgba(212, 246, 57, 0.28);
+  transform: translateY(-3px);
 }
 
 .glass-panel-glow {
-  background: rgba(12, 21, 51, 0.8);
+  background: #ffffff;
   backdrop-filter: blur(20px);
-  border: 1px solid rgba(0, 245, 212, 0.3);
-  box-shadow: 0 0 35px rgba(0, 245, 212, 0.12);
+  border: 2px solid #D4F639;
+  box-shadow: 0 10px 30px rgba(212, 246, 57, 0.25);
 }
 
-/* Sci-fi badge & telemetry styling */
+/* Monospace telemetry badges */
 .telemetry-tag {
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 
-/* 3D Book perspective styles */
+/* 3D Book perspective */
 .book-perspective {
   perspective: 1200px;
 }
 
 .book-tilt {
   transform: rotateY(-16deg) rotateX(4deg);
-  box-shadow: -15px 20px 35px rgba(0, 0, 0, 0.8), 0 0 40px rgba(0, 245, 212, 0.2);
+  box-shadow: -15px 25px 40px rgba(15, 23, 42, 0.18), 0 0 40px rgba(212, 246, 57, 0.25);
   transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.5s ease;
 }
 
 .book-tilt:hover {
   transform: rotateY(-6deg) rotateX(1deg) scale(1.02);
-  box-shadow: -20px 25px 45px rgba(0, 0, 0, 0.9), 0 0 55px rgba(0, 245, 212, 0.35);
+  box-shadow: -20px 30px 50px rgba(15, 23, 42, 0.22), 0 0 55px rgba(212, 246, 57, 0.4);
 }
 
 /* Dropcap for literary sci-fi */
@@ -121,14 +120,14 @@ body {
   line-height: 0.8;
   margin-top: 0.15em;
   margin-right: 0.15em;
-  color: #00f5d4;
-  font-weight: 700;
-  text-shadow: 0 0 15px rgba(0, 245, 212, 0.5);
+  color: #0f172a;
+  font-weight: 800;
+  text-shadow: 2px 2px 0px #D4F639;
 }
 
 @keyframes pulse-slow {
-  0%, 100% { opacity: 0.3; transform: scale(1); }
-  50% { opacity: 0.7; transform: scale(1.03); }
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.03); }
 }
 
 .animate-pulse-slow {

@@ -1,5 +1,5 @@
 import React from "react";
-import { Star, Quote, Award } from "lucide-react";
+import { Star, Quote } from "lucide-react";
 import { Review } from "@/types";
 
 interface TestimonialCardProps {
@@ -10,14 +10,14 @@ interface TestimonialCardProps {
 export default function TestimonialCard({ review, featured = false }: TestimonialCardProps) {
   return (
     <div
-      className={`relative flex flex-col justify-between p-6 sm:p-7 rounded-2xl transition-all duration-300 ${
+      className={`relative flex flex-col justify-between p-6 sm:p-7 rounded-3xl transition-all duration-300 ${
         featured
-          ? "glass-panel-glow border-cyan-500/40 bg-void-850/80 shadow-xl shadow-cyan-500/10"
-          : "glass-panel glass-panel-hover"
+          ? "bg-white border-2 border-[#D4F639] shadow-lg shadow-[#D4F639]/15"
+          : "bg-white border border-slate-200/80 shadow-sm hover:shadow-md hover:border-[#D4F639]"
       }`}
     >
       {/* Subtle quote watermark */}
-      <Quote className="absolute top-5 right-5 h-8 w-8 text-cyan-500/10 pointer-events-none" />
+      <Quote className="absolute top-5 right-5 h-8 w-8 text-slate-100 pointer-events-none stroke-[1.5]" />
 
       <div className="space-y-4">
         {/* Star Rating & Type Badge */}
@@ -28,10 +28,10 @@ export default function TestimonialCard({ review, featured = false }: Testimonia
             ))}
           </div>
           <span
-            className={`text-[10px] font-mono px-2 py-0.5 rounded-full uppercase tracking-wider ${
+            className={`text-[10px] font-mono px-2.5 py-1 rounded-full uppercase tracking-wider font-bold ${
               review.type === "editorial"
-                ? "bg-cyan-500/15 text-cyan-300 border border-cyan-500/30"
-                : "bg-violet-500/15 text-violet-300 border border-violet-500/30"
+                ? "bg-[#D4F639]/35 text-slate-950 border border-[#D4F639]"
+                : "bg-slate-100 text-slate-700 border border-slate-200"
             }`}
           >
             {review.type === "editorial" ? "Editorial Star" : "Verified Reader"}
@@ -39,24 +39,24 @@ export default function TestimonialCard({ review, featured = false }: Testimonia
         </div>
 
         {/* Quote Body */}
-        <blockquote className="text-sm sm:text-base text-slate-200 leading-relaxed italic">
+        <blockquote className="text-sm sm:text-base text-slate-800 leading-relaxed italic">
           &ldquo;{review.quote}&rdquo;
         </blockquote>
       </div>
 
       {/* Reviewer Information */}
-      <div className="mt-6 pt-4 border-t border-slate-800/80 flex items-center justify-between">
+      <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
         <div>
-          <h4 className="font-semibold text-white text-sm tracking-wide">
+          <h4 className="font-extrabold text-slate-950 text-sm tracking-wide">
             {review.author}
           </h4>
-          <p className="text-xs text-cyan-400/90 font-mono">
+          <p className="text-xs text-slate-500 font-mono font-bold">
             {review.source}
           </p>
         </div>
 
         {review.date && (
-          <span className="text-[11px] font-mono text-slate-500">
+          <span className="text-[11px] font-mono text-slate-400 font-medium">
             {review.date}
           </span>
         )}
